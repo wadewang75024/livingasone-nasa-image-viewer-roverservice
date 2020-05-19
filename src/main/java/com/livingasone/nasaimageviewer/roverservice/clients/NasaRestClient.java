@@ -24,7 +24,8 @@ public class NasaRestClient extends RestTemplateClient {
 			        								    AppConstants.NASAS_API_KEY);
 			
 		logger.info("Making the call with URL: " + builder.toUriString());			
-	    ResponseEntity<RoverList> response = rest.exchange(builder.toUriString(), HttpMethod.GET, null, RoverList.class);    		    
+	    //ResponseEntity<RoverList> response = rest.exchange(builder.toUriString(), HttpMethod.GET, null, RoverList.class); 
+		ResponseEntity<RoverList> response = makeGetCallWithExchange(builder.toUriString(), RoverList.class);
 	    return response.getBody();
 	}
 }
